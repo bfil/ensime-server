@@ -137,7 +137,7 @@ object EnsimeBuild {
     // test config needed to get the test jar
     testingSimpleJar % "test,it->test",
     testingTiming % "test,it",
-    testingMacros % "test, it",
+    testingMacros % "test,it",
     testingShapeless % "test,it",
     testingDebug % "test,it",
     testingJava % "test,it"
@@ -231,8 +231,8 @@ object EnsimeBuild {
 
   lazy val testingFqns = Project("testingFqns", file("testing/fqns")).settings (
     libraryDependencies ++= Sensible.shapeless(scalaVersion.value) ++ Seq(
-      "org.typelevel" %% "cats" % "0.6.0" % Test intransitive(),
-      "org.spire-math" %% "spire" % "0.11.0" % Test intransitive()
+      "org.typelevel" %% "cats" % "0.7.2" % "test" intransitive(),
+      "org.spire-math" %% "spire" % "0.11.0" % "test" intransitive()
     )
   )
 
@@ -243,8 +243,8 @@ object EnsimeBuild {
   lazy val testingDocs = Project("testingDocs", file("testing/docs")).settings(
     dependencyOverrides ++= Set("com.google.guava" % "guava" % "18.0"),
     libraryDependencies ++= Seq(
-      "com.github.dvdme" % "ForecastIOLib" % "1.5.1" intransitive (),
-      "commons-io" % "commons-io" % "2.5" intransitive ()
+      "com.github.dvdme" % "ForecastIOLib" % "1.5.1" intransitive(),
+      "commons-io" % "commons-io" % "2.5" intransitive()
     ) ++ Sensible.guava
   )
 
